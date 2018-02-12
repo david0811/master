@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    249290,       5150]
-NotebookOptionsPosition[    243409,       4955]
-NotebookOutlinePosition[    243767,       4971]
-CellTagsIndexPosition[    243724,       4968]
+NotebookDataLength[    270418,       5688]
+NotebookOptionsPosition[    262822,       5451]
+NotebookOutlinePosition[    263180,       5467]
+CellTagsIndexPosition[    263137,       5464]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3715,14 +3715,16 @@ Cell[BoxData[{
     RowBox[{
      RowBox[{"{", "}"}], ",", 
      RowBox[{"{", "}"}], ",", 
-     RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\n", 
+     RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetSharedVariable", "[", "res", "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"Module", "[", 
    RowBox[{
     RowBox[{"{", 
      RowBox[{"al", ",", "sig", ",", "const"}], "}"}], ",", 
     "\[IndentingNewLine]", 
-    RowBox[{"Do", "[", 
+    RowBox[{"ParallelDo", "[", 
      RowBox[{
       RowBox[{
        RowBox[{
@@ -3731,20 +3733,21 @@ Cell[BoxData[{
         RowBox[{
          RowBox[{"{", 
           RowBox[{"\[Alpha]", ",", "\[Sigma]", ",", "c"}], "}"}], "/.", 
-         RowBox[{"FindRoot", "[", 
-          RowBox[{
-           RowBox[{"bbswavePDG3rand", "==", 
-            RowBox[{"bbswavemass3rand", "[", 
-             RowBox[{"\[Alpha]", ",", "\[Sigma]", ",", "c"}], "]"}]}], ",", 
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"\[Alpha]", ",", "\[Alpha]cont"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"\[Sigma]", ",", "\[Sigma]cont"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"c", ",", "ccont"}], "}"}]}], "}"}]}], "]"}]}]}], ";", 
-       "\[IndentingNewLine]", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"FindRoot", "[", 
+           RowBox[{
+            RowBox[{"bbswavePDG3rand", "==", 
+             RowBox[{"bbswavemass3rand", "[", 
+              RowBox[{"\[Alpha]", ",", "\[Sigma]", ",", "c"}], "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Alpha]", ",", "\[Alpha]cont"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Sigma]", ",", "\[Sigma]cont"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"c", ",", "ccont"}], "}"}]}], "}"}]}], "]"}], 
+          "]"}]}]}], ";", "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"res", "[", 
          RowBox[{"[", "1", "]"}], "]"}], "=", 
@@ -3770,16 +3773,196 @@ Cell[BoxData[{
            RowBox[{"[", "3", "]"}], "]"}], ",", "const"}], "]"}]}], ";"}], 
       ",", 
       RowBox[{"{", 
-       RowBox[{"i", ",", "1", ",", "100"}], "}"}]}], "]"}]}], "]"}], "//", 
+       RowBox[{"i", ",", "1", ",", "1000"}], "}"}]}], "]"}]}], "]"}], "//", 
   "AbsoluteTiming"}]}], "Input",
  CellChangeTimes->{{3.72629968409614*^9, 3.726299701491541*^9}, 
    3.726299806475688*^9, {3.726299904271298*^9, 3.7262999108842077`*^9}, 
-   3.726383465427496*^9, 3.726383986009042*^9}],
+   3.726383465427496*^9, 3.726383986009042*^9, {3.727104441924055*^9, 
+   3.72710444289507*^9}, {3.727105409585011*^9, 3.72710541070674*^9}, {
+   3.727105794333334*^9, 3.727105836752589*^9}, 3.727106368604731*^9, 
+   3.727108376610477*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LinkObject","linkd",
+   "\"Unable to communicate with closed link \
+\\!\\(\\*RowBox[{\\\"LinkObject\\\", \\\"[\\\", \
+RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\"/Applications/Mathematica.app/Contents/\
+MacOS/WolframKernel\\\\\\\\\\\\\\\" -subkernel -noinit -wstp\\\\\\\"\\\", \
+\\\",\\\", \\\"766\\\", \\\",\\\", \\\"5\\\"}], \\\"]\\\"}]\\).\"",2,46,1,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.72711460516401*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Kernels","rdead",
+   "\"Subkernel connected through \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\
+\\\\\"\\\", \\\"[\\\", RowBox[{\\\"1\\\", \\\",\\\", \
+\\\"\\\\\\\"local\\\\\\\"\\\"}], \\\"]\\\"}]\\) appears dead.\"",2,46,2,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271146053422003`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Parallel`Developer`QueueRun","req",
+   "\"Requeueing evaluations \\!\\(\\*RowBox[{\\\"{\\\", \\\"22\\\", \
+\\\"}\\\"}]\\) assigned to \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"1\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"",2,46,3,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.72711460538433*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LaunchKernels","clone",
+   "\"Kernel \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \
+\\\"[\\\", RowBox[{\\\"1\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\
+\\\", \\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\) resurrected as \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"3\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\).\"",2,46,4,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271146059269543`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LinkObject","linkd",
+   "\"Unable to communicate with closed link \
+\\!\\(\\*RowBox[{\\\"LinkObject\\\", \\\"[\\\", \
+RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\"/Applications/Mathematica.app/Contents/\
+MacOS/WolframKernel\\\\\\\\\\\\\\\" -subkernel -noinit -wstp\\\\\\\"\\\", \
+\\\",\\\", \\\"767\\\", \\\",\\\", \\\"6\\\"}], \\\"]\\\"}]\\).\"",2,46,5,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271156401077833`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Kernels","rdead",
+   "\"Subkernel connected through \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\
+\\\\\"\\\", \\\"[\\\", RowBox[{\\\"2\\\", \\\",\\\", \
+\\\"\\\\\\\"local\\\\\\\"\\\"}], \\\"]\\\"}]\\) appears dead.\"",2,46,6,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727115640222563*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Parallel`Developer`QueueRun","req",
+   "\"Requeueing evaluations \\!\\(\\*RowBox[{\\\"{\\\", \\\"23\\\", \
+\\\"}\\\"}]\\) assigned to \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"2\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"",2,46,7,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727115640263721*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LaunchKernels","clone",
+   "\"Kernel \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \
+\\\"[\\\", RowBox[{\\\"2\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\
+\\\", \\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\) resurrected as \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"4\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\).\"",2,46,8,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271156408724413`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LinkObject","linkd",
+   "\"Unable to communicate with closed link \
+\\!\\(\\*RowBox[{\\\"LinkObject\\\", \\\"[\\\", \
+RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\"/Applications/Mathematica.app/Contents/\
+MacOS/WolframKernel\\\\\\\\\\\\\\\" -subkernel -noinit -wstp\\\\\\\"\\\", \
+\\\",\\\", \\\"1070\\\", \\\",\\\", \\\"6\\\"}], \\\"]\\\"}]\\).\"",2,46,9,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727123788094479*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"LinkObject\\\", \
+\\\"::\\\", \\\"linkd\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,46,10,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271237882403603`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Kernels","rdead",
+   "\"Subkernel connected through \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\
+\\\\\"\\\", \\\"[\\\", RowBox[{\\\"4\\\", \\\",\\\", \
+\\\"\\\\\\\"local\\\\\\\"\\\"}], \\\"]\\\"}]\\) appears dead.\"",2,46,11,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727123788268556*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Kernels\\\", \
+\\\"::\\\", \\\"rdead\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,46,12,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271237882983217`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Parallel`Developer`QueueRun","req",
+   "\"Requeueing evaluations \\!\\(\\*RowBox[{\\\"{\\\", \\\"29\\\", \
+\\\"}\\\"}]\\) assigned to \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"4\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"",2,46,13,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271237884098167`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \
+\\!\\(\\*StyleBox[RowBox[{\\\"Parallel`Developer`QueueRun\\\", \\\"::\\\", \\\
+\"req\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,46,14,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271237884540377`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LaunchKernels","clone",
+   "\"Kernel \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \
+\\\"[\\\", RowBox[{\\\"4\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\
+\\\", \\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\) resurrected as \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"5\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\).\"",2,46,15,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727123789055666*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"LaunchKernels\\\", \
+\\\"::\\\", \\\"clone\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,46,16,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727123789206806*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"3516.635257`", ",", "Null"}], "}"}]], "Output",
- CellChangeTimes->{3.726383874248839*^9, 3.726387519624777*^9}]
+  RowBox[{"21549.149252`", ",", "Null"}], "}"}]], "Output",
+ CellChangeTimes->{3.726383874248839*^9, 3.726387519624777*^9, 
+  3.727104512662733*^9, 3.727105755374248*^9, 3.727105817781288*^9, 
+  3.7271060224148903`*^9, 3.727108216568488*^9, 3.727129926263257*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3816,43 +3999,356 @@ Cell[BoxData[{
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"0.51337361348677`", ",", "0.0023404962817841343`"}], 
+  RowBox[{"0.5137117745535908`", ",", "0.002512200028298928`"}], 
   "}"}]], "Output",
- CellChangeTimes->{3.7263838799619627`*^9, 3.7263903127187023`*^9}],
+ CellChangeTimes->{3.7263838799619627`*^9, 3.7263903127187023`*^9, 
+  3.727104512924098*^9, 3.727105792361182*^9, 3.727108374247634*^9, 
+  3.7271299265122747`*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"0.16968882517310951`", ",", "0.0007809655091097356`"}], 
+  RowBox[{"0.1695586155512243`", ",", "0.0008767529904765293`"}], 
   "}"}]], "Output",
- CellChangeTimes->{3.7263838799619627`*^9, 3.7263903127270927`*^9}],
+ CellChangeTimes->{3.7263838799619627`*^9, 3.7263903127187023`*^9, 
+  3.727104512924098*^9, 3.727105792361182*^9, 3.727108374247634*^9, 
+  3.727129926526992*^9}],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   RowBox[{"-", "0.15995652034077723`"}], ",", "0.0020697672207542874`"}], 
+   RowBox[{"-", "0.15958150150389222`"}], ",", "0.0024723463622613817`"}], 
   "}"}]], "Output",
- CellChangeTimes->{3.7263838799619627`*^9, 3.726390312734111*^9}]
+ CellChangeTimes->{3.7263838799619627`*^9, 3.7263903127187023`*^9, 
+  3.727104512924098*^9, 3.727105792361182*^9, 3.727108374247634*^9, 
+  3.727129926535111*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"res1", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"{", "}"}], ",", 
+     RowBox[{"{", "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetSharedVariable", "[", "res", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"al", ",", "sig", ",", "const"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"ParallelDo", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"al", ",", "sig", ",", "const"}], "}"}], "=", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\[Alpha]", ",", "\[Sigma]", ",", "c"}], "}"}], "/.", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"FindRoot", "[", 
+           RowBox[{
+            RowBox[{"bbswavePDG3rand", "==", 
+             RowBox[{"bbswavemass3rand", "[", 
+              RowBox[{"\[Alpha]", ",", "\[Sigma]", ",", "c"}], "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Alpha]", ",", "\[Alpha]cont"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\[Sigma]", ",", "\[Sigma]cont"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"c", ",", "ccont"}], "}"}]}], "}"}]}], "]"}], 
+          "]"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"res", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{
+          RowBox[{"res", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", "al"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"res", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{
+          RowBox[{"res", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ",", "sig"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"res", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], "=", 
+        RowBox[{"Append", "[", 
+         RowBox[{
+          RowBox[{"res", "[", 
+           RowBox[{"[", "3", "]"}], "]"}], ",", "const"}], "]"}]}], ";"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "1000"}], "}"}]}], "]"}]}], "]"}], "//", 
+  "AbsoluteTiming"}]}], "Input",
+ CellChangeTimes->{3.727110440041564*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LinkObject","linkd",
+   "\"Unable to communicate with closed link \
+\\!\\(\\*RowBox[{\\\"LinkObject\\\", \\\"[\\\", \
+RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\"/Applications/Mathematica.app/Contents/\
+MacOS/WolframKernel\\\\\\\\\\\\\\\" -subkernel -noinit -wstp\\\\\\\"\\\", \
+\\\",\\\", \\\"1104\\\", \\\",\\\", \\\"6\\\"}], \\\"]\\\"}]\\).\"",2,52,17,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727130106076901*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Kernels","rdead",
+   "\"Subkernel connected through \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\
+\\\\\"\\\", \\\"[\\\", RowBox[{\\\"6\\\", \\\",\\\", \
+\\\"\\\\\\\"local\\\\\\\"\\\"}], \\\"]\\\"}]\\) appears dead.\"",2,52,18,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727130106172456*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Parallel`Developer`QueueRun","req",
+   "\"Requeueing evaluations \\!\\(\\*RowBox[{\\\"{\\\", \\\"33\\\", \
+\\\"}\\\"}]\\) assigned to \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"6\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"",2,52,19,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727130106269764*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LaunchKernels","clone",
+   "\"Kernel \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \
+\\\"[\\\", RowBox[{\\\"6\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\
+\\\", \\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\) resurrected as \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"7\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\).\"",2,52,20,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727130106858327*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LinkObject","linkd",
+   "\"Unable to communicate with closed link \
+\\!\\(\\*RowBox[{\\\"LinkObject\\\", \\\"[\\\", \
+RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\"/Applications/Mathematica.app/Contents/\
+MacOS/WolframKernel\\\\\\\\\\\\\\\" -subkernel -noinit -wstp\\\\\\\"\\\", \
+\\\",\\\", \\\"1055\\\", \\\",\\\", \\\"5\\\"}], \\\"]\\\"}]\\).\"",2,52,21,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727176556128417*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Kernels","rdead",
+   "\"Subkernel connected through \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\
+\\\\\"\\\", \\\"[\\\", RowBox[{\\\"3\\\", \\\",\\\", \
+\\\"\\\\\\\"local\\\\\\\"\\\"}], \\\"]\\\"}]\\) appears dead.\"",2,52,22,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727176556274576*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Parallel`Developer`QueueRun","req",
+   "\"Requeueing evaluations \\!\\(\\*RowBox[{\\\"{\\\", \\\"41\\\", \
+\\\"}\\\"}]\\) assigned to \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"3\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"",2,52,23,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727176556301799*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LaunchKernels","clone",
+   "\"Kernel \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \
+\\\"[\\\", RowBox[{\\\"3\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\
+\\\", \\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\) resurrected as \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"8\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\).\"",2,52,24,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727176556988007*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LinkObject","linkd",
+   "\"Unable to communicate with closed link \
+\\!\\(\\*RowBox[{\\\"LinkObject\\\", \\\"[\\\", \
+RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\"/Applications/Mathematica.app/Contents/\
+MacOS/WolframKernel\\\\\\\\\\\\\\\" -subkernel -noinit -wstp\\\\\\\"\\\", \
+\\\",\\\", \\\"1229\\\", \\\",\\\", \\\"5\\\"}], \\\"]\\\"}]\\).\"",2,52,25,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727178584150133*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"LinkObject\\\", \
+\\\"::\\\", \\\"linkd\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,52,26,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271785842492228`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Kernels","rdead",
+   "\"Subkernel connected through \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\
+\\\\\"\\\", \\\"[\\\", RowBox[{\\\"8\\\", \\\",\\\", \
+\\\"\\\\\\\"local\\\\\\\"\\\"}], \\\"]\\\"}]\\) appears dead.\"",2,52,27,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727178584387746*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Kernels\\\", \
+\\\"::\\\", \\\"rdead\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,52,28,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727178584485059*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Parallel`Developer`QueueRun","req",
+   "\"Requeueing evaluations \\!\\(\\*RowBox[{\\\"{\\\", \\\"41\\\", \
+\\\"}\\\"}]\\) assigned to \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"8\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\\\", \
+\\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\).\"",2,52,29,
+   15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271785847687902`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \
+\\!\\(\\*StyleBox[RowBox[{\\\"Parallel`Developer`QueueRun\\\", \\\"::\\\", \\\
+\"req\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"",2,52,30,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727178584813614*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "LaunchKernels","clone",
+   "\"Kernel \\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \
+\\\"[\\\", RowBox[{\\\"8\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\", \\\",\
+\\\", \\\"\\\\\\\"<defunct>\\\\\\\"\\\"}], \\\"]\\\"}]\\) resurrected as \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"KernelObject\\\\\\\"\\\", \\\"[\\\", \
+RowBox[{\\\"9\\\", \\\",\\\", \\\"\\\\\\\"local\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\).\"",2,52,31,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7271785849841137`*^9}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","stop",
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"LaunchKernels\\\", \
+\\\"::\\\", \\\"clone\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"",2,52,32,15919403790421337544,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.727178585073254*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"58787.15322`", ",", "Null"}], "}"}]], "Output",
+ CellChangeTimes->{3.727188713816884*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"\[Alpha]final1", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Mean", "[", 
+     RowBox[{"res", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", 
+    RowBox[{"StandardDeviation", "[", 
+     RowBox[{"res", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"\[Sigma]final1", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Mean", "[", 
+     RowBox[{"res", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], "]"}], ",", 
+    RowBox[{"StandardDeviation", "[", 
+     RowBox[{"res", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"cfinal1", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Mean", "[", 
+     RowBox[{"res", "[", 
+      RowBox[{"[", "3", "]"}], "]"}], "]"}], ",", 
+    RowBox[{"StandardDeviation", "[", 
+     RowBox[{"res", "[", 
+      RowBox[{"[", "3", "]"}], "]"}], "]"}]}], "}"}]}]}], "Input",
+ CellChangeTimes->{{3.727110451497797*^9, 3.727110464258153*^9}, {
+  3.727194261436037*^9, 3.727194300090358*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.5137193759431391`", ",", "0.0024666827878353577`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.727188714186364*^9, 3.727194300666582*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.16955497884544793`", ",", "0.0008581023195660334`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.727188714186364*^9, 3.727194300678822*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "0.15956635071361625`"}], ",", "0.0024752900407607015`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.727188714186364*^9, 3.727194300687273*^9}]
 }, Open  ]],
 
 Cell[BoxData[{
  RowBox[{
   RowBox[{"\[Alpha]final", "=", 
    RowBox[{"{", 
-    RowBox[{"0.51337361348677`", ",", "0.0023404962817841343`"}], "}"}]}], 
-  ";"}], "\n", 
- RowBox[{
+    RowBox[{"0.5137193759431391`", ",", "0.0024666827878353577`"}], "}"}]}], 
+  ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"2", "k", " ", "run"}], "*)"}], "\n", 
   RowBox[{"\[Sigma]final", "=", 
    RowBox[{"{", 
-    RowBox[{"0.16968882517310951`", ",", "0.0007809655091097356`"}], "}"}]}], 
+    RowBox[{"0.16955497884544793`", ",", "0.0008581023195660334`"}], "}"}]}], 
   ";"}], "\n", 
  RowBox[{
   RowBox[{"cfinal", "=", 
    RowBox[{"{", 
     RowBox[{
-     RowBox[{"-", "0.15995652034077723`"}], ",", "0.0020697672207542874`"}], 
+     RowBox[{"-", "0.15956635071361625`"}], ",", "0.0024752900407607015`"}], 
     "}"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.72638322254738*^9, 3.726383247696941*^9}, {
-  3.726478196354815*^9, 3.726478208739379*^9}}],
+  3.726478196354815*^9, 3.726478208739379*^9}, {3.7271943694090157`*^9, 
+  3.727194420258937*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -5059,96 +5555,138 @@ Cell[192590, 3575, 1640, 40, 117, "Input"],
 Cell[194233, 3617, 1571, 41, 96, "Input"],
 Cell[195807, 3660, 1710, 46, 99, "Input"],
 Cell[CellGroupData[{
-Cell[197542, 3710, 2337, 66, 138, "Input"],
-Cell[199882, 3778, 151, 3, 32, "Output"]
+Cell[197542, 3710, 2684, 72, 159, "Input"],
+Cell[200229, 3784, 493, 10, 24, "Message"],
+Cell[200725, 3796, 375, 8, 24, "Message"],
+Cell[201103, 3806, 489, 10, 24, "Message"],
+Cell[201595, 3818, 554, 10, 24, "Message"],
+Cell[202152, 3830, 496, 10, 24, "Message"],
+Cell[202651, 3842, 373, 8, 24, "Message"],
+Cell[203027, 3852, 490, 10, 24, "Message"],
+Cell[203520, 3864, 554, 10, 24, "Message"],
+Cell[204077, 3876, 495, 10, 24, "Message"],
+Cell[204575, 3888, 346, 7, 24, "Message"],
+Cell[204924, 3897, 374, 8, 24, "Message"],
+Cell[205301, 3907, 343, 7, 24, "Message"],
+Cell[205647, 3916, 493, 10, 24, "Message"],
+Cell[206143, 3928, 363, 8, 24, "Message"],
+Cell[206509, 3938, 553, 10, 24, "Message"],
+Cell[207065, 3950, 347, 7, 24, "Message"],
+Cell[207415, 3959, 292, 5, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[200070, 3786, 984, 28, 75, "Input"],
-Cell[201057, 3816, 181, 4, 32, "Output"],
-Cell[201241, 3822, 184, 4, 32, "Output"],
-Cell[201428, 3828, 201, 5, 32, "Output"]
-}, Open  ]],
-Cell[201644, 3836, 610, 18, 75, "Input"],
-Cell[202257, 3856, 3668, 98, 189, "Input"],
-Cell[CellGroupData[{
-Cell[205950, 3958, 356, 9, 32, "Input"],
-Cell[206309, 3969, 385, 8, 32, "Output"]
+Cell[207744, 3969, 984, 28, 75, "Input"],
+Cell[208731, 3999, 278, 6, 32, "Output"],
+Cell[209012, 4007, 277, 6, 32, "Output"],
+Cell[209292, 4015, 297, 7, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[206731, 3982, 354, 9, 32, "Input"],
-Cell[207088, 3993, 281, 6, 32, "Output"]
-}, Open  ]],
-Cell[207384, 4002, 244, 7, 32, "Input"],
-Cell[207631, 4011, 2703, 60, 100, "Input"],
-Cell[CellGroupData[{
-Cell[210359, 4075, 794, 21, 32, "Input"],
-Cell[211156, 4098, 490, 9, 32, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[211683, 4112, 206, 5, 32, "Input"],
-Cell[211892, 4119, 302, 7, 35, "Output"]
-}, Open  ]],
-Cell[212209, 4129, 3108, 79, 138, "Input"],
-Cell[215320, 4210, 1309, 27, 35, "Input"],
-Cell[216632, 4239, 777, 20, 35, "Input"],
-Cell[217412, 4261, 781, 19, 32, "Input"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[218230, 4285, 102, 1, 44, "Subsection"],
-Cell[218335, 4288, 611, 16, 54, "Input"],
-Cell[218949, 4306, 1964, 51, 119, "Input"],
-Cell[CellGroupData[{
-Cell[220938, 4361, 281, 7, 32, "Input"],
-Cell[221222, 4370, 568, 10, 39, "Message"],
-Cell[221793, 4382, 566, 10, 39, "Message"],
-Cell[222362, 4394, 566, 10, 39, "Message"],
-Cell[222931, 4406, 371, 7, 24, "Message"],
-Cell[223305, 4415, 163, 3, 32, "Output"]
-}, Open  ]],
-Cell[223483, 4421, 157, 3, 32, "Input"],
-Cell[223643, 4426, 3896, 104, 213, "Input"],
-Cell[CellGroupData[{
-Cell[227564, 4534, 189, 3, 32, "Input"],
-Cell[227756, 4539, 275, 6, 32, "Output"]
+Cell[209626, 4027, 2348, 67, 159, "Input"],
+Cell[211977, 4096, 496, 10, 24, "Message"],
+Cell[212476, 4108, 374, 8, 24, "Message"],
+Cell[212853, 4118, 491, 10, 24, "Message"],
+Cell[213347, 4130, 553, 10, 24, "Message"],
+Cell[213903, 4142, 496, 10, 24, "Message"],
+Cell[214402, 4154, 374, 8, 24, "Message"],
+Cell[214779, 4164, 491, 10, 24, "Message"],
+Cell[215273, 4176, 553, 10, 24, "Message"],
+Cell[215829, 4188, 496, 10, 24, "Message"],
+Cell[216328, 4200, 346, 7, 24, "Message"],
+Cell[216677, 4209, 374, 8, 24, "Message"],
+Cell[217054, 4219, 341, 7, 24, "Message"],
+Cell[217398, 4228, 493, 10, 24, "Message"],
+Cell[217894, 4240, 361, 8, 24, "Message"],
+Cell[218258, 4250, 555, 10, 24, "Message"],
+Cell[218816, 4262, 347, 7, 24, "Message"],
+Cell[219166, 4271, 129, 3, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[228068, 4550, 183, 3, 32, "Input"],
-Cell[228254, 4555, 253, 6, 32, "Output"]
+Cell[219332, 4279, 1036, 29, 75, "Input"],
+Cell[220371, 4310, 179, 4, 32, "Output"],
+Cell[220553, 4316, 180, 4, 32, "Output"],
+Cell[220736, 4322, 199, 5, 32, "Output"]
+}, Open  ]],
+Cell[220950, 4330, 717, 20, 75, "Input"],
+Cell[221670, 4352, 3668, 98, 189, "Input"],
+Cell[CellGroupData[{
+Cell[225363, 4454, 356, 9, 32, "Input"],
+Cell[225722, 4465, 385, 8, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[228544, 4566, 1995, 50, 100, "Input"],
-Cell[230542, 4618, 346, 7, 24, "Message"],
-Cell[230891, 4627, 348, 7, 24, "Message"],
-Cell[231242, 4636, 339, 7, 24, "Message"],
-Cell[231584, 4645, 336, 7, 24, "Message"],
-Cell[231923, 4654, 546, 10, 39, "Message"],
-Cell[232472, 4666, 546, 10, 39, "Message"],
-Cell[233021, 4678, 546, 10, 39, "Message"],
-Cell[233570, 4690, 347, 7, 24, "Message"]
+Cell[226144, 4478, 354, 9, 32, "Input"],
+Cell[226501, 4489, 281, 6, 32, "Output"]
+}, Open  ]],
+Cell[226797, 4498, 244, 7, 32, "Input"],
+Cell[227044, 4507, 2703, 60, 100, "Input"],
+Cell[CellGroupData[{
+Cell[229772, 4571, 794, 21, 32, "Input"],
+Cell[230569, 4594, 490, 9, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[233954, 4702, 200, 5, 32, "Input"],
-Cell[234157, 4709, 277, 6, 32, "Output"]
+Cell[231096, 4608, 206, 5, 32, "Input"],
+Cell[231305, 4615, 302, 7, 35, "Output"]
+}, Open  ]],
+Cell[231622, 4625, 3108, 79, 138, "Input"],
+Cell[234733, 4706, 1309, 27, 35, "Input"],
+Cell[236045, 4735, 777, 20, 35, "Input"],
+Cell[236825, 4757, 781, 19, 32, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[234471, 4720, 1365, 41, 58, "Input"],
-Cell[235839, 4763, 257, 4, 32, "Output"]
+Cell[237643, 4781, 102, 1, 44, "Subsection"],
+Cell[237748, 4784, 611, 16, 54, "Input"],
+Cell[238362, 4802, 1964, 51, 119, "Input"],
+Cell[CellGroupData[{
+Cell[240351, 4857, 281, 7, 32, "Input"],
+Cell[240635, 4866, 568, 10, 39, "Message"],
+Cell[241206, 4878, 566, 10, 39, "Message"],
+Cell[241775, 4890, 566, 10, 39, "Message"],
+Cell[242344, 4902, 371, 7, 24, "Message"],
+Cell[242718, 4911, 163, 3, 32, "Output"]
+}, Open  ]],
+Cell[242896, 4917, 157, 3, 32, "Input"],
+Cell[243056, 4922, 3896, 104, 213, "Input"],
+Cell[CellGroupData[{
+Cell[246977, 5030, 189, 3, 32, "Input"],
+Cell[247169, 5035, 275, 6, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[236133, 4772, 191, 5, 32, "Input"],
-Cell[236327, 4779, 112, 1, 32, "Output"]
+Cell[247481, 5046, 183, 3, 32, "Input"],
+Cell[247667, 5051, 253, 6, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[236476, 4785, 387, 12, 58, "Input"],
-Cell[236866, 4799, 139, 2, 32, "Output"]
+Cell[247957, 5062, 1995, 50, 100, "Input"],
+Cell[249955, 5114, 346, 7, 24, "Message"],
+Cell[250304, 5123, 348, 7, 24, "Message"],
+Cell[250655, 5132, 339, 7, 24, "Message"],
+Cell[250997, 5141, 336, 7, 24, "Message"],
+Cell[251336, 5150, 546, 10, 39, "Message"],
+Cell[251885, 5162, 546, 10, 39, "Message"],
+Cell[252434, 5174, 546, 10, 39, "Message"],
+Cell[252983, 5186, 347, 7, 24, "Message"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[237042, 4806, 389, 12, 58, "Input"],
-Cell[237434, 4820, 110, 1, 32, "Output"]
+Cell[253367, 5198, 200, 5, 32, "Input"],
+Cell[253570, 5205, 277, 6, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[237581, 4826, 708, 23, 50, "Input"],
-Cell[238292, 4851, 5077, 99, 233, "Output"]
+Cell[253884, 5216, 1365, 41, 58, "Input"],
+Cell[255252, 5259, 257, 4, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[255546, 5268, 191, 5, 32, "Input"],
+Cell[255740, 5275, 112, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[255889, 5281, 387, 12, 58, "Input"],
+Cell[256279, 5295, 139, 2, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[256455, 5302, 389, 12, 58, "Input"],
+Cell[256847, 5316, 110, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[256994, 5322, 708, 23, 50, "Input"],
+Cell[257705, 5347, 5077, 99, 233, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
