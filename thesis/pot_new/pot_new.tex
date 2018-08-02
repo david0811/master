@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amssymb,cite}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{suffix}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiterX\MeijerM[3]{\lparen}{\rparen}%
+{\begin{smallmatrix}#1 \\ #2\end{smallmatrix}\delimsize\vert\,#3}
+
+\newcommand\MeijerG[8][]{%
+  G^{\,#2,#3}_{#4,#5}\MeijerM[#1]{#6}{#7}{#8}}
+
+\WithSuffix\newcommand\MeijerG*[7]{%
+  G^{\,#1,#2}_{#3,#4}\MeijerM*{#5}{#6}{#7}}
+
+\begin{document}
+
+Here we attempt to analytically formulate the string part of the potential without relying on any assumptions. The starting point is the generalised Gauss law which is employed by Rothkopf \& Burnier,
+\begin{equation}
+\label{eq:gengauss}
+\nabla\cdot\left(\frac{\mathbf{E}}{r^{a+1}}\right)=4\pi q\delta\!\left(\mathbf{r}\right),
+\end{equation}
+which holds for electric fields of the form \(\mathbf{E}\left(\mathbf{r}\right)=-\nabla V\!\left(\mathbf{r}\right)=qr^{a-1}\hat{r}\). This can be expanded to give the generalised Gauss law operator for the Coulombic \(\left(a=-1, q=\tilde{\alpha}_s\right)\),
+\begin{equation}
+\label{eq:coulgauss}
+-\nabla^2V_{C}\!\left(r\right)=4\pi\tilde{\alpha}_s \delta\!\left(\mathbf{r}\right),
+\end{equation}
+and string \(\left(a=1, q=\sigma\right)\),
+\begin{equation}
+\label{eq:stringgauss}
+-\frac{1}{r^2}\frac{\mathrm{d}^2V_S\!\left(r\right)}{\mathrm{d}r^2}=4\pi\sigma\delta\!\left(\mathbf{r}\right),
+\end{equation}
+parts of the potential. Previously at this point, the left-hand-side of Eqs.~\ref{eq:coulgauss}, \ref{eq:stringgauss} were modified to include a term \(\rho\!\left(\mathbf{r}\right)\) which characterises the background charge density. We will neglect this step and instead account for the thermal background field only via the in-medium permittivity,
+\begin{equation}
+\label{eq:perm}
+\varepsilon^{-1}\!\left(\mathbf{p},m_{D}\right)=\frac{p^2}{p^2+m_D^2}-i\pi T \frac{p m_D^2}{\left(p^2+m_D^2\right)^2},
+\end{equation} 
+which acts to ``wash-out" the coordinate space delta-functions in Eqs.~\eqref{eq:coulgauss}, \ref{eq:stringgauss}. More quantitatively, one can show that the net in-medium electric field (which accounts for screening) can be gained from the vacuum electric field by multiplying in momentum space by the complex permittivity \eqref{eq:perm}. For the Coulombic case, this is straightforward since the Gauss operator in \eqref{eq:coulgauss} is diagonalised by the Fourier transform. The defining equation for the Coulombic part of the in-medium potential is then
+\begin{equation}
+\label{eq:coulgaussp}
+p^2 V_C\!\left(r\right)=\frac{4\pi\tilde{\alpha}_s}{\varepsilon^{-1}\!\left(\mathbf{p},m_{D}\right)},
+\end{equation}
+which can readily be solved simply by inverse Fourier transforming. Until this point, the analysis is identical to Rothkopf \& Burnier, who then proceed to construct an elegant matching between the field-theoretic description via the complex permittivity and the classical Debye-H{\"u}ckel formalism via the background charge density. They are able to build a linear-response-type equation in momentum space for the Coulombic part of the potential, which when transformed into an ordinary differential equation in real space, can be solved with physically-motivated boundary conditions. The result is the same as (trivially) solving Eq.~\eqref{eq:coulgaussp} and then (less-trivially) inverse Fourier transforming. The key assumption they make in deducing the string part of the potential is that the right-hand-side of the real-space ordinary differential equation (encoding the medium effects) is identical to the Coulomb case. The necessity of this assumption arises from being unable to Fourier transform the string Gauss law operator in \eqref{eq:stringgauss}.
+
+This analysis follows a different path. We begin by inverse Fourier transforming the in-medium permittivity Eq.~\eqref{eq:perm}. The calculation is as follows:
+\begin{align}
+\mathrm{Re}\;\varepsilon^{-1}\!\left(\mathbf{r},m_{D}\right)&=\int\!\frac{\mathrm{d}^3p}{\left(2\pi\right)^3}\frac{p^2}{p^2+m_D^2}\mathrm{e}^{i \mathbf{pr}} \nonumber\\ 
+&=-\frac{m_D^2}{4\pi} \frac{\mathrm{e}^{-m_D r}}{r}, \label{eq:repermre} \\
+\nonumber\\
+\mathrm{Im}\;\varepsilon^{-1}\!\left(\mathbf{r},m_{D}\right)&=-\pi T\int\!\frac{\mathrm{d}^3p}{\left(2\pi\right)^3}\frac{p m_D^2}{\left(p^2+m_D^2\right)^2}\mathrm{e}^{i \mathbf{pr}} \nonumber \\
+&=-T\frac{2\pi^2}{\left(2\pi\right)^3}\int_0^\infty\!\mathrm{d}p\int_0^{\pi}\mathrm{d}\theta\;p^2 \sin\theta\frac{p m_D^2}{\left(p^2+m_D^2\right)^2}\mathrm{e}^{ipr\cos\theta} \nonumber\\
+&=-T\frac{4\pi^2}{\left(2\pi\right)^3}\int_0^\infty\!\mathrm{d}p\;\frac{p^3 m_D^2}{\left(p^2+m_D^2\right)^2}\frac{\sin\!\left(pr\right)}{pr} \nonumber\\
+&=-\frac{m_D T}{4r\sqrt{\pi}}\MeijerG[\Bigg]{2}{1}{1}{3}{-\frac{1}{2}}{-\frac{1}{2},-\frac{1}{2},0}{\frac{1}{4}m_D^2r^2} \label{eq:impermre}
+\end{align}
+where Eq.~\eqref{eq:repermre} is calculated via the residue theorem and Eq.\eqref{eq:impermre} contains the Meijer-G function. We now transform Eqs.~\eqref{eq:coulgauss}, \eqref{eq:stringgauss} into momentum space, multiply by the in-medium permittivity as formally correct, and then transform back into the real space. The defining equations for the Coulomb and string parts of the potential are then
+\begin{equation}
+\label{eq:couleq}
+-\nabla^2V_{C}\!\left(r\right)=4\pi\tilde{\alpha}_s\varepsilon^{-1}\!\left(r,m_{D}\right)
+%-\frac{\mathrm{d}^2V_{C}\!\left(r\right)}{\mathrm{d}r^2}-\frac{2}{r}\frac{\mathrm{d}V_{C}\!\left(r\right)}{\mathrm{d}r}=4\pi\tilde{\alpha}_s\varepsilon^{-1}\!\left(r,m_{D}\right)%
+\end{equation}
+and
+\begin{equation}
+\label{eq:stringeq}
+-\frac{1}{r^2}\frac{\mathrm{d}^2V_S\!\left(r\right)}{\mathrm{d}r^2}=4\pi\sigma\varepsilon^{-1}\!\left(r,m_{D}\right).
+\end{equation}
+The explicit forms of each part of the potential will be gained upon solving these equations with appropriate boundary equations. Eq.~\eqref{eq:couleq} is simply the Poisson equation, for which there exists various numerical methods to solve. We need not delve into this, since the Coulombic part of the potential has already been calculated exactly and analytically. Indeed, it is easy to check that the solutions obtained from Rothkopf \& Burnier,
+\begin{align}
+\mathrm{Re}V_C\!\left(r\right)&=-\tilde{\alpha}_s\frac{\mathrm{e}^{-m_D r}}{r}-\tilde{\alpha}_s m_D \\
+\mathrm{Im}V_C\!\left(r\right)&=-2\tilde{\alpha}_sT\int_{0}^{\infty}\mathrm{d}z\;\frac{z}{\left(z^2+1\right)^2}\left(1-\frac{\sin m_D r z}{m_D r z}\right)
+\end{align}
+satisfy \eqref{eq:couleq} with a numerical accuracy of one part in \(10^{???}\).
+Through a turn of good fortune, the solution to Eq.~\eqref{eq:stringeq} can be immediately written down,
+\begin{equation}
+V_{S}\!\left(r\right)= c_0 + c_1r-4\pi\sigma\int_{0}^{r}\mathrm{d}r'\int_{0}^{r'}\mathrm{d}r'' {r''}^2\varepsilon^{-1}\!\left(r'',m_{D}\right),
+\end{equation}
+where \(c_0\) and \(c_1\) are chosen to ensure the boundary conditions. Namely, we wish to impose that
+\begin{align}
+\left.\frac{\mathrm{d}}{\mathrm{d}r}\mathrm{Re}V_S\!\left(r\right)\right|_{r=\infty}=0, \left.\mathrm{Re}V_S\!\left(r\right)\right|_{m_D=0}=\sigma r, \\
+\left.\frac{\mathrm{d}}{\mathrm{d}r}\mathrm{Im}V_S\!\left(r\right)\right|_{r=0}=0, \left.\frac{\mathrm{d}}{\mathrm{d}r}\mathrm{Im}V_S\!\left(r\right)\right|_{r=\infty}=0.
+\end{align}
+The solutions admit an analytical form:
+\begin{align}
+\mathrm{Re}V_S\!\left(r\right)&=\frac{2\sigma}{m_D}-\mathrm{e}^{-m_D r}\left(\frac{2}{m_D}+r\right)\sigma \\
+\mathrm{Im}V_S\!\left(r\right)&=-\sqrt{\pi}\frac{T\sigma}{m_D}\;r\;\MeijerG[\Bigg]{2}{2}{3}{4}{\frac{1}{2},\frac{1}{2}}{\frac{3}{2},\frac{3}{2},-\frac{1}{2},0}{\frac{1}{4}m_D^2r^2}.
+\end{align}
+
+\end{document}
