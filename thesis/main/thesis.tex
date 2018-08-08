@@ -3,33 +3,37 @@
 %%
 %% You need at least KomaScript v3.0.0,
 %% e.g. available in Texlive 2009
-\documentclass  [
-  paper    = a4,
-  BCOR     = 10mm,
-  twoside,
-  fontsize = 12pt,
-  fleqn,
-  toc      = bibnumbered,
-  toc      = listofnumbered,
-  numbers  = noendperiod,
-  headings = normal,
-  listof   = leveldown,
-  version  = 3.03
-]                                       {scrreprt}
+\documentclass[12pt, a4paper, twoside]{book}
+\usepackage[a4paper,left=3cm,right=2cm,top=2.5cm,bottom=2.5cm,bindingoffset=5mm]{geometry}
+\linespread{1.25}
 
 % used pagages
-\usepackage     [utf8]                  {inputenc}
-\usepackage     [T1]                    {fontenc}
-\usepackage                             {color}
-\usepackage                             {amsmath}
-\usepackage                             {graphicx}
-\usepackage     [english]               {babel}
-\usepackage                             {natbib}
-\usepackage                             {hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
 
-% links
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+
+\usepackage{cite}
+\bibliographystyle{abbrv}
+\usepackage{hyperref}
+
+\usepackage{appendix}
+
+% german date setup
+\usepackage[ngerman]{datetime}
+\newdateformat{myformat}{\THEDAY{ten }\monthnamengerman[\THEMONTH], \THEYEAR}
+
+% colours
+\usepackage{color}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.4}
 \definecolor{darkgreen}{rgb}{0.0,0.4,0.0}
+
+% links
 \hypersetup{
     colorlinks,
     linkcolor=black,
@@ -38,21 +42,44 @@
 }
 
 \begin{document}
-  %% title pages similar to provided template instead of maketitle
-  \include{titlepages-eng} % or english title page
-  \include{abstracts}
 
-  \tableofcontents
-  %% Put your contents here
+\pagestyle{empty}
 
-  \part{Appendix}
-  \begin{appendix}
-    \chapter{Lists}
-    \listoffigures
-    \listoftables
-    \bibliography{references}{}
-    \citestyle{egu}
-    \bibliographystyle{plainnat}
-    \include{deposition}
-  \end{appendix}
+\include{titlepages-eng}
+
+\cleardoublepage
+
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\include{abstracts}
+
+\cleardoublepage
+
+\cleardoublepage
+
+\tableofcontents
+
+\cleardoublepage
+
+\pagenumbering{arabic}
+\chapter{Introduction}
+\chapter{Theory overview}
+\chapter{The in-medium potential}
+\chapter{Application to Heavy Ion Collisions}
+\chapter{Conclusion}
+
+\begin{appendices}
+\chapter{Debye mass derivation}
+\chapter{Schwinger-Keldysh formalism}
+\end{appendices}
+
+\bibliography{references}
+
+\chapter*{Acknowledgements}
+
+
+\cleardoublepage
+\include{deposition}
+
 \end{document}
