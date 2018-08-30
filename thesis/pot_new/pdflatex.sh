@@ -13,3 +13,5 @@ rm *.lof
 rm *.lot
 rm *.out
 rm *.toc
+
+open $1.pdf
