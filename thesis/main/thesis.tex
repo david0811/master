@@ -93,7 +93,6 @@ This thesis presents a new prescription for parametrising the static heavy-quark
 In this Chapter, we provide the theoretical foundations of various topics that will be important throughout the rest of this thesis. We start with an introduction into quantum chromodynamics, by constructing the Lagrangian and looking at the fundamental interactions. Some more insight will be given on the phenomena of confinement and asymptotic freedom, before a brief discussion of QCD thermodynamics and the phase diagram. The presentation here will mainly follow [REF] where the reader can consult for more details. We then give an overview of vacuum heavy quarkonium physics by outlining some of the techniques used to discern for example the numerous quantum states in the heavy quark anti-quark system. Finally, we introduce some important concepts in heavy ion collisions, with an emphasis on heavy quarkonium phenomenology. 
 \section{Aspects of QCD}
 In the 1970s, Murray Gell-Mann and George Zweig independently proposed a model to explain the observed spectrum of strongly interacting particles that contained the idea of \emph{quarks} as elementary particles of fractional charge that exist within hadrons. While explaining and predicting some aspects very well, the quark model contained notable flaws. Namely, the lack of observation of free particles with fractional charge, and the existence of some states apparently in violation of the well-established exclusion principle that quarks, as fermions, must obey. The resolution of the first problem was the introduction of a new, additional quantum number termed \emph{colour}. Each quark would carry one of three possible colour charges -- red, green, or blue, -- the symmetry properties of which mitigated the existence of the problematic states. The second problem was solved by the discovery that non-Abelian gauge theories exhibit asymptotic freedom [REF], which allowed the theory of strong interactions to be brought into its final form. Namely, quantum chromodynamics, a non-Abelian gauge theory with colour symmetry group \(SU\brac{3}\), coupled to quarks acting under the fundamental representation. As is often the case in science, we have had the luxury of summarising decades of previous generations' work in a mere few sentences, glossing over the murky and often enlightening details. For a more detailed historical account of the development of QCD, a nice read is [REF].  
-
 \subsection{QCD Lagrangian}
 As a quantum field theory, the fundamental object of QCD is its Lagrangian density (often denoted simply as the Lagrangian), \(\mathcal{L}_{QCD}\), which we now proceed to construct based on the guiding properties outlined in the previous paragraph. The quarks and anti-quarks are described respectively by the Dirac spinor fields 
 \begin{equation}
@@ -135,10 +134,9 @@ With this, we are able to write down the QCD Lagrangian in all of its glory. Hol
 \mathcal{L}_{QCD}=\bar{\psi}\brac{x}\brac{i\slashed{D}-M}\psi\brac{x}-\frac{1}{4}F^a_{\mu\nu}F_a^{\mu\nu}.
 \end{equation}
 The above equation is the most fundamental realisation of the strong nuclear force. It is often deemed beautiful that the huge and rich variety of emergent physical phenomena associated with the strong force can be attributed in principle to a single equation. 
-
 \subsection{Asymptotic freedom}
 We now proceed to examine the interactions that arise from Eq.~\eqref{eq:qcdlagr} at the level of quarks and gluons, and investigate some of their consequences. The first term in Eq.~\eqref{eq:qcdlagr} contains a quadratic expression in the fermion field \(\psi\) which describes the propagation of a non-interacting particle. It also couples the fermion field to the gauge field \(A\) through the \(A\) term in the covariant derivative, giving rise to a three-point interaction vertex. Without explicitly expanding the second term, one can easily observe that it will give rise to expressions \(\sim\!A^2, \sim\!A^3\) and \(\sim\!A^4\). The expression quadratic in the gauge fields will eventually describe the propagation of free gluons, although it should be noted here that one must first quantise the theory in a self-consistent way by using the Faddeev-Popov method which is rather non-trivial [REF]. The expressions \(\sim\!A^3\) and \(\sim\!A^4\) describe gluonic self-interactions. These are unique to QCD as compared to for example the Abelian theory of quantum electrodynamics (QED), and play a vital role in the plethora of highly non-trivial QCD dynamics. The diagrammatic representations of each expression above is given in Fig.~\ref{fig:qcdtree}. 
-\begin{figure}
+\begin{figure}[t]
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
     	\begin{fmffile}{QCDfermion}
@@ -211,24 +209,135 @@ We now proceed to examine the interactions that arise from Eq.~\eqref{eq:qcdlagr
 
 Before being able to quantitatively understand asymptotic freedom, we must first introduce \emph{renormalisation} and the concept of a running coupling. Although it is recognised today that quantum field theory (QFT) is the only consistent framework that can emerge from the union of quantum mechanics and special relativity [REF:weinberg1], this was by no means obvious in its historical development. In the early days, quantum field theoretic tools could be used to describe some physical processes with good accuracy, however its usefulness was certainly not ubiquitous. The theory also exhibited some worrying features -- most notably, the emergence of unphysical infinities when calculating scattering amplitudes beyond leading order. QFT was considered so sick that even its most ardent practitioners acknowledged the need for something of an overhaul, with many physicists advocating employing somewhat different formalisms to describe the most fundamental interactions [REF].
 
-The remedy eventually came by way of renormalisation. The modern picture is as follows: the expressions describing fundamental processes often contain divergent integral expressions, which are nonetheless able to be quantified and isolated by the process of \emph{regularisation}. Then, the free parameters such as the masses and coupling constant in a Lagrangian like Eq.~\eqref{eq:qcdlagr} are interpreted as `bare' and unphysical. They must be split into a physical part and a corresponding unphysical `counter-term' that will cancel the infinities present in the theory. In this way, the divergences are swept under the proverbial rug, leaving the physical parameters that must be measured in experiment. This was seen by some as a cheap trick when first introduced, however with the advent of Kenneth Wilson's renormalisation group originating from statistical physics, it is today valued as an indispensable tool in describing the physical world. In the Wilsonian viewpoint the subtraction of infinity can be seen as an admission of our ignorance, in the sense that we introduce a cut-off scale at large momenta or small distances, beyond which the theory is not expected to hold. The renormalisation group is a fascinating tool that permeates many areas of theoretical physics today, with powerful accompanying ideas and extensions such as universality. The interested reader can refer to [REFS], with QFT applications being given in [REF].
+The remedy eventually came by way of renormalisation. The modern picture is as follows: the expressions describing fundamental processes often contain divergent integral expressions, which are nonetheless able to be quantified and isolated by the process of \emph{regularisation}. Then, the free parameters such as the masses and coupling constant in a Lagrangian like Eq.~\eqref{eq:qcdlagr} are interpreted as `bare' and unphysical. They must be split into a physical part and a corresponding unphysical `counter-term' that will cancel the infinities present in the theory. In this way, the divergences are swept under the proverbial rug, leaving the physical parameters that must be measured in experiment. This was seen by some as a cheap trick when first introduced, however with the advent of Kenneth Wilson's renormalisation group originating from statistical physics, it is today valued as an indispensable tool in describing the physical world. In the Wilsonian viewpoint the subtraction of infinity can be seen as an admission of our ignorance, in the sense that we introduce a cut-off scale at large momenta or small distances, beyond which the theory is not expected to hold. The renormalisation group is a fascinating tool that permeates many areas of theoretical physics today, with powerful accompanying ideas and extensions such as universality. The interested reader can refer to [REFS], with quantum field theoretic applications being given in [REF].
 
 One consequence of renormalisation is that the physical parameters inherit a scale dependence. Much like the way in which the spring constant in Newton's second law depends on the make-up of the spring and can only be measured in mechanical experiments, the physical masses and coupling constants of a renormalised quantum field theory will depend on the momentum (or equivalently, distance) scale probed by a particular collider experiment. In the case of a given coupling constant, this phenomenon is known generically as the running of the coupling. One can calculate (via the renormalisation procedure outlined above) to a given order how the coupling constant will change as the momentum scale is changed. This is usually expressed via the beta function
 \begin{equation}
 \label{eq:betafunc}
-\beta\brac{g\brac{\mu}}=\frac{\partial g\brac{\mu}}{\partial \mathrm{log}\brac{\mu}},
+\beta\brac{g\brac{Q^2}}=Q^2\frac{\partial g\brac{Q^2}}{\partial Q^2},
 \end{equation}
-where \(g\) is the relevant coupling constant evaluated at momentum scale \(\mu\). For QCD the relevant diagrams at one-loop order are shown in Fig.~\ref{fig:QCDbeta_oneloop} and the result is [REF]
-\begin{equation}
+where \(g\) is the relevant coupling constant evaluated at momentum scale \(Q^2\). For QCD the relevant diagrams at one-loop order are shown in Fig.~\ref{fig:QCDbeta_oneloop} and the result is [REF]
+\begin{align}
 \label{eq:betaQCD_oneloop}
-\beta_{QCD}\brac{g}\lvert_{\mathrm{1-loop}}=-b\frac{g^3}{16\pi^2}+\mathcal{O}\brac{g^5}
+\beta_{QCD}\brac{g}\lvert_{\mathrm{1-loop}}&=-\beta_0\frac{g^3}{16\pi^2}+\mathcal{O}\brac{g^5} \\[1.5ex]
+&= -\beta_0\frac{\alpha_S}{2\pi}+\mathcal{O}\brac{\alpha_S^2} \label{eq:betaQCD_oneloop_alpha}
+\end{align}
+where we have introduced the more commonly used \(\alpha_s=g^2/4\pi\) and
+\begin{equation}
+\beta_0=\frac{33-2 N_F}{12\pi}
 \end{equation}
-where \(b=11-\frac{2}{3}N_F\) and \(N_F\) is the number of flavours. The minus sign in Eq.~\eqref{eq:betaQCD_oneloop} is of tremendous importance. It implies that for \(N_F\leq 16\) the QCD coupling constant decreases as the energy or momentum scale increases. Defining the more commonly used \(\alpha_s=\frac{g^2}{4\pi}\), the beta-function can be integrated to give
+with \(N_F\) equal to the number of flavours. The minus sign in Eq.~\eqref{eq:betaQCD_oneloop} is of tremendous importance. It implies that for \(N_F\leq 16\) the physical QCD coupling constant approaches zero as the energy or momentum scale tends to infinity. This phenomenon is known as asymptotic freedom.
+
+Integrating Eq.~\eqref{eq:betaQCD_oneloop_alpha} allows the coupling at one momentum scale to be quantitatively related to that at another:
 \begin{equation}
 \label{eq:gQCD_oneloop}
-
+\alpha_S\brac{Q^2}=\frac{\alpha_S\brac{\mu^2}}{1+\alpha_S\brac{\mu^2}\beta_0\log\frac{Q^2}{\mu^2}}.
 \end{equation}
-
+The above equation encompasses what is known generically as the running of the coupling. Note that this expression is only to one-loop order and more accurate calculations would include additional terms in Eq.~\eqref{eq:betaQCD_oneloop_alpha}, however beyond second order the result becomes dependent on the renormalisation scheme employed. Fig.~\ref{fig:RunningCoupling} shows numerical results for the 4-loop calculation. At larger momenta the smallness of the effective coupling permits the use of perturbation theory, which has been incredibly successful in describing hard scattering processes at high energies [REF]. Conversely, as the low-momenta infrared regime is approached, perturbative methods break down and one must employ other techniques such as lattice gauge theory [REF]. Note that in analogy to quantum electrodynamics, one can interpret the running coupling physically in terms of vacuum polarisation and (anti-)screening [REF]. The screening of a test charge will be a central concept throughout the rest of this thesis and will be introduced properly in Section.~\ref{sec:med_pot}.
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+    	\begin{fmffile}{fermionself}
+    		\begin{fmfgraph}(40,25)
+    		\fmfleft{i1}
+    		\fmfright{o1}
+    		\fmf{vanilla,tension=3}{i1,v1}
+    		\fmf{vanilla,tension=3}{o1,v2}
+    		\fmf{vanilla}{v2,v1}
+    		\fmf{gluon,left=1}{v1,v2}
+    		\fmfdot{v1,v2}
+    		\end{fmfgraph}
+    	\end{fmffile}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+    	\begin{fmffile}{gluonself4}
+    	\begin{fmfgraph}(40,25)
+    		\fmfleft{i1}
+    		\fmfright{o1}
+    		\fmf{gluon}{i1,v1}
+    		\fmf{gluon}{v1,v1}
+    		\fmf{gluon}{v1,o1}
+    		\fmfdot{v1}
+    		\end{fmfgraph}
+    	\end{fmffile}
+    \end{subfigure}
+    
+    \begin{subfigure}[b]{0.3\textwidth}
+    	\begin{fmffile}{gluonself1}
+    		\begin{fmfgraph}(40,25)
+    		\fmfleft{i}
+    		\fmfright{o}
+    		\fmf{gluon,tension=3}{i,v1}
+    		\fmf{vanilla,left=1}{v1,v2,v1}
+    		\fmf{gluon,tension=3}{v2,o}
+    		\fmfdot{v1,v2}
+    		\end{fmfgraph}
+    	\end{fmffile}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+    	\begin{fmffile}{gluonself2}
+    		\begin{fmfgraph}(40,25)
+    		\fmfleft{i}
+    		\fmfright{o}
+    		\fmf{gluon,tension=3}{i,v1}
+    		\fmf{dashes,left=1}{v1,v2,v1}
+    		\fmf{gluon,tension=3}{v2,o}
+    		\fmfdot{v1,v2}
+    		\end{fmfgraph}
+    	\end{fmffile}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+    	\begin{fmffile}{gluonself3}
+    		\begin{fmfgraph}(40,25)
+    		\fmfleft{i}
+    		\fmfright{o}
+    		\fmf{gluon,tension=3}{i,v1}
+    		\fmf{gluon,left=1}{v1,v2,v1}
+    		\fmf{gluon,tension=3}{v2,o}
+    		\fmfdot{v1,v2}
+    		\end{fmfgraph}
+    	\end{fmffile}
+    \end{subfigure}   
+    \vspace*{10mm}
+    
+     
+    \begin{subfigure}[b]{0.3\textwidth}
+    	\begin{fmffile}{vertex1}
+    		\begin{fmfgraph}(40,25)
+    		\fmfleft{i1,i2}
+		    \fmfright{o1}
+   			\fmf{plain,tension=1/3}{i1,v2,v1}
+   			\fmf{plain,tension=1/3}{i2,v3,v1}
+   			\fmf{gluon,tension=0}{v2,v3}
+   			\fmf{gluon}{v1,o1}
+   			\fmfdot{v1,v2,v3}
+    		\end{fmfgraph}
+    	\end{fmffile}
+    \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+    	\begin{fmffile}{vertex2}
+    		\begin{fmfgraph}(40,25)
+    		\fmfleft{i1,i2}
+		    \fmfright{o1}
+   			\fmf{plain,tension=1/3}{i1,v2}
+   			\fmf{plain,tension=1/3}{i2,v3}
+   			\fmf{gluon,tension=0}{v3,v2}
+   			\fmf{gluon,tension=1/3}{v2,v1}
+   			\fmf{gluon,tension=1/3}{v1,v3}
+   			\fmf{gluon}{v1,o1}
+   			\fmfdot{v1,v3,v2}
+    		\end{fmfgraph}
+    	\end{fmffile}
+    \end{subfigure}
+    \vspace*{4mm}
+    \caption{One-loop running.}
+   	\label{fig:qcdtree}
+\end{figure}
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.9\textwidth]{RunningCoupling}
+	\caption{Running coupling.}\label{fig:RunningCoupling}
+\end{figure}
 \section{Quarkonium in vacuum}
 \label{sec:quark_vav}
 \onehalfspacing
