@@ -17,6 +17,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{slashed}
+\usepackage{braket}
 
 \usepackage{graphicx}
 \graphicspath{{./plots/}}
@@ -77,7 +78,7 @@ The strong interaction is the strongest of the four fundamental forces of nature
 
 The monumental experimental effort aimed at detecting and quantifying the QGP has culminated today in the relativistic heavy-ion colliders such at those at BNL, CERN, and GSI. The complexity of such experiments has necessitated the development of new techniques both in experiment and theory, in order to firstly map the measured experimental data to QGP properties (a highly non-trivial process) and then to understand how these macroscopic properties emerge from the underlying microscopic theory of QCD. With regards to the former, one refers to various ``probes'' that may indicate the presence of QGP formation. This thesis revolves around one such probe, namely heavy quarkonium.
 
-The bound states of a heavy quark and anti-quark of the same flavour are known generically as quarkonia. Since the seminal work of Matsui and Statz [REF], the interest in quarkonium as a probe of the QGP has grown into a considerable subfield in the realm of heavy ion collisions. From an experimental perspective, an intricate and not yet fully understood structure has emerged in the production and decay of these mesons throughout the collision process. From the theory side, the development of new effective field theories [REF] has allowed quantitative predictions to be made from ever more rigorous formalisms. One such formalism, known as pNRQCD, relies on separating the typical scales present in the system, so that the dynamics of the bound state are governed by an effective potential in a non-relativistic Schro{\"o}dinger equation [REF]. In this way, the complexities of the full quantum field theory are reduced to a much more tractable quantum mechanical problem.
+The bound states of a heavy quark and antiquark of the same flavour are known generically as quarkonia. Since the seminal work of Matsui and Statz [REF], the interest in quarkonium as a probe of the QGP has grown into a considerable subfield in the realm of heavy ion collisions. From an experimental perspective, an intricate and not yet fully understood structure has emerged in the production and decay of these mesons throughout the collision process. From the theory side, the development of new effective field theories [REF] has allowed quantitative predictions to be made from ever more rigorous formalisms. One such formalism, known as pNRQCD, relies on separating the typical scales present in the system, so that the dynamics of the bound state are governed by an effective potential in a non-relativistic Schro{\"o}dinger equation [REF]. In this way, the complexities of the full quantum field theory are reduced to a much more tractable quantum mechanical problem.
 
 This thesis presents a new prescription for parametrising the static heavy-quark potential in a background of hot and deconfined charge carriers, such as the QGP. By generalising the Gauss law of classical electromagnetism and combining this with a field-theoretic in-medium permittivity, the resulting in-medium complex potential admits an analytical solution. This can then be used to calculate spectral functions, and give realistic phenomenological predictions. The outline of this thesis is as follows: in Chapter \ref{sec:theory_ov}, we give a short summary of some theoretical aspects of QCD, as well as an introduction into quarkonium phenomenology both in vacuum and in the context of heavy ion collisions. Chapter \ref{sec:med_pot} provides a detailed derivation of the in-medium potential and shows that this parametrisation is able to faithfully reproduce lattice data by utilising only one fitting parameter, the inverse screening length. Chapter \ref{sec:app_HIC} outlines the procedure with which phenomenologically relevant quantities such as the melting temperatures, decay widths, and electromagnetic decay ratios can be calculated. The main results of this thesis are also given here, and a comparison is made with recent experimental results. A summary and outlook is given in Chapter \ref{sec:conc}. Appendix A contains a short introduction to thermal field theory and in particular the notion of a spectral function. Appendix B gives a more formal derivation of the Debye mass at one-loop order via Euclidean thermal field theory and finally, Appendix C shows how the structure of the in-medium permittivity arises from the Schwinger-Keldysh formalism. 
 
@@ -90,11 +91,12 @@ This thesis presents a new prescription for parametrising the static heavy-quark
 \chapter{Theory overview}
 \label{sec:theory_ov}
 \onehalfspacing
-In this Chapter, we provide the theoretical foundations of various topics that will be important throughout the rest of this thesis. We start with an introduction into quantum chromodynamics, by constructing the Lagrangian and looking at the fundamental interactions. Some more insight will be given on the phenomena of confinement and asymptotic freedom, before a brief discussion of QCD thermodynamics and the phase diagram. The presentation here will mainly follow [REF] where the reader can consult for more details. We then give an overview of vacuum heavy quarkonium physics by outlining some of the techniques used to discern for example the numerous quantum states in the heavy quark anti-quark system. Finally, we introduce some important concepts in heavy ion collisions, with an emphasis on heavy quarkonium phenomenology. 
+In this Chapter, we provide the theoretical foundations of various topics that will be important throughout the rest of this thesis. We start with an introduction into quantum chromodynamics, by constructing the Lagrangian and looking at the fundamental interactions. Some more insight will be given on the phenomena of confinement and asymptotic freedom, before a brief discussion of QCD thermodynamics and the phase diagram. The presentation here will mainly follow [REF] where the reader can consult for more details. We then give an overview of vacuum heavy quarkonium physics by outlining some of the techniques used to discern for example the numerous quantum states in the heavy quark antiquark system. Finally, we introduce some important concepts in heavy ion collisions, with an emphasis on heavy quarkonium phenomenology. 
 \section{Aspects of QCD}
 In the 1970s, Murray Gell-Mann and George Zweig independently proposed a model to explain the observed spectrum of strongly interacting particles that contained the idea of \emph{quarks} as elementary particles of fractional charge that exist within hadrons. While explaining and predicting some aspects very well, the quark model contained notable flaws. Namely, the lack of observation of free particles with fractional charge, and the existence of some states apparently in violation of the well-established exclusion principle that quarks, as fermions, must obey. The resolution of the first problem was the introduction of a new, additional quantum number termed \emph{colour}. Each quark would carry one of three possible colour charges -- red, green, or blue, -- the symmetry properties of which mitigated the existence of the problematic states. The second problem was solved by the discovery that non-Abelian gauge theories exhibit asymptotic freedom [REF], which allowed the theory of strong interactions to be brought into its final form. Namely, quantum chromodynamics, a non-Abelian gauge theory with colour symmetry group \(SU\brac{3}\), coupled to quarks acting under the fundamental representation. As is often the case in science, we have had the luxury of summarising decades of previous generations' work in a mere few sentences, glossing over the murky and often enlightening details. For a more detailed historical account of the development of QCD, a nice read is [REF].  
 \subsection{QCD Lagrangian}
-As a quantum field theory, the fundamental object of QCD is its Lagrangian density (often denoted simply as the Lagrangian), \(\mathcal{L}_{QCD}\), which we now proceed to construct based on the guiding properties outlined in the previous paragraph. The quarks and anti-quarks are described respectively by the Dirac spinor fields 
+\label{sec:QCDLagr}
+As a quantum field theory, the fundamental object of QCD is its Lagrangian density (often denoted simply as the Lagrangian), \(\mathcal{L}_{QCD}\), which we now proceed to construct based on the guiding properties outlined in the previous paragraph. The quarks and antiquarks are described respectively by the Dirac spinor fields 
 \begin{equation}
 \psi_{\alpha,i,f}\brac{x}, \quad\quad \bar{\psi}_{\alpha,i,f}\brac{x},
 \end{equation} 
@@ -134,7 +136,7 @@ With this, we are able to write down the QCD Lagrangian in all of its glory. Hol
 \mathcal{L}_{QCD}=\bar{\psi}\brac{x}\brac{i\slashed{D}-M}\psi\brac{x}-\frac{1}{4}F^a_{\mu\nu}F_a^{\mu\nu}.
 \end{equation}
 The above equation is the most fundamental realisation of the strong nuclear force. It is often deemed beautiful that the huge and rich variety of emergent physical phenomena associated with the strong force can be attributed in principle to a single equation. 
-\subsection{Asymptotic freedom}
+\subsection{Running coupling}
 We now proceed to examine the interactions that arise from Eq.~\eqref{eq:qcdlagr} at the level of quarks and gluons, and investigate some of their consequences. The first term in Eq.~\eqref{eq:qcdlagr} contains a quadratic expression in the fermion field \(\psi\) which describes the propagation of a non-interacting particle. It also couples the fermion field to the gauge field \(A\) through the \(A\) term in the covariant derivative, giving rise to a three-point interaction vertex. Without explicitly expanding the second term, one can easily observe that it will give rise to expressions \(\sim\!A^2, \sim\!A^3\) and \(\sim\!A^4\). The expression quadratic in the gauge fields will eventually describe the propagation of free gluons, although it should be noted here that one must first quantise the theory in a self-consistent way by using the Faddeev-Popov method which is rather non-trivial [REF]. The expressions \(\sim\!A^3\) and \(\sim\!A^4\) describe gluonic self-interactions. These are unique to QCD as compared to for example the Abelian theory of quantum electrodynamics (QED), and play a vital role in the plethora of highly non-trivial QCD dynamics. The diagrammatic representations of each expression above is given in Fig.~\ref{fig:qcdtree}. 
 \begin{figure}[t]
     \centering
@@ -216,7 +218,7 @@ One consequence of renormalisation is that the physical parameters inherit a sca
 \label{eq:betafunc}
 \beta\brac{g\brac{Q^2}}=Q^2\frac{\partial g\brac{Q^2}}{\partial Q^2},
 \end{equation}
-where \(g\) is the relevant coupling constant evaluated at momentum scale \(Q^2\). For QCD the relevant diagrams at one-loop order are shown in Fig.~\ref{fig:QCDbeta_oneloop} and the result is [REF]
+where \(g\) is the physical coupling constant evaluated at momentum scale \(Q^2\) (one should distinguish explicitly between the bare and physical parameters; for the remainder of this thesis we refer to only the physical parameters and in an abuse of notation use the same symbols as in Sec.~\ref{sec:QCDLagr}). For QCD the relevant diagrams at one-loop order are shown in Fig.~\ref{fig:QCDbeta_oneloop} and the result is [REF]
 \begin{align}
 \label{eq:betaQCD_oneloop}
 \beta_{QCD}\brac{g}\lvert_{\mathrm{1-loop}}&=-\beta_0\frac{g^3}{16\pi^2}+\mathcal{O}\brac{g^5} \\[1.5ex]
@@ -226,14 +228,7 @@ where we have introduced the more commonly used \(\alpha_s=g^2/4\pi\) and
 \begin{equation}
 \beta_0=\frac{33-2 N_F}{12\pi}
 \end{equation}
-with \(N_F\) equal to the number of flavours. The minus sign in Eq.~\eqref{eq:betaQCD_oneloop} is of tremendous importance. It implies that for \(N_F\leq 16\) the physical QCD coupling constant approaches zero as the energy or momentum scale tends to infinity. This phenomenon is known as asymptotic freedom.
-
-Integrating Eq.~\eqref{eq:betaQCD_oneloop_alpha} allows the coupling at one momentum scale to be quantitatively related to that at another:
-\begin{equation}
-\label{eq:gQCD_oneloop}
-\alpha_S\brac{Q^2}=\frac{\alpha_S\brac{\mu^2}}{1+\alpha_S\brac{\mu^2}\beta_0\log\frac{Q^2}{\mu^2}}.
-\end{equation}
-The above equation encompasses what is known generically as the running of the coupling. Note that this expression is only to one-loop order and more accurate calculations would include additional terms in Eq.~\eqref{eq:betaQCD_oneloop_alpha}, however beyond second order the result becomes dependent on the renormalisation scheme employed. Fig.~\ref{fig:RunningCoupling} shows numerical results for the 4-loop calculation. At larger momenta the smallness of the effective coupling permits the use of perturbation theory, which has been incredibly successful in describing hard scattering processes at high energies [REF]. Conversely, as the low-momenta infrared regime is approached, perturbative methods break down and one must employ other techniques such as lattice gauge theory [REF]. Note that in analogy to quantum electrodynamics, one can interpret the running coupling physically in terms of vacuum polarisation and (anti-)screening [REF]. The screening of a test charge will be a central concept throughout the rest of this thesis and will be introduced properly in Section.~\ref{sec:med_pot}.
+with \(N_F\) equal to the number of light fermion flavours. The minus sign in Eq.~\eqref{eq:betaQCD_oneloop} is of tremendous importance. It implies that for \(N_F\leq 16\) the physical QCD coupling constant approaches zero as the energy or momentum scale tends to infinity. This phenomenon is known as asymptotic freedom.
 \begin{figure}[t]
     \centering
     \begin{subfigure}[b]{0.3\textwidth}
@@ -331,15 +326,49 @@ The above equation encompasses what is known generically as the running of the c
     \end{subfigure}
     \vspace*{4mm}
     \caption{One-loop running.}
-   	\label{fig:qcdtree}
+   	\label{fig:QCDbeta_oneloop}
 \end{figure}
+
+By integrating Eq.~\eqref{eq:betaQCD_oneloop_alpha}, one can extrapolate the value of the experimentally-measured coupling at momentum transfer \(\mu\) to an arbitrary momentum scale \(Q\):
+\begin{equation}
+\label{eq:gQCD_oneloop}
+\alpha_S\brac{Q^2}=\frac{\alpha_S\brac{\mu^2}}{1+\alpha_S\brac{\mu^2}\beta_0\log\frac{Q^2}{\mu^2}}.
+\end{equation}
+The above equation encompasses what is known generically as the running of the coupling. Note that this expression is only to one-loop order and more accurate calculations would include additional terms in Eq.~\eqref{eq:betaQCD_oneloop_alpha}, however beyond second order the result becomes dependent on the renormalisation scheme employed. Fig.~\ref{fig:RunningCoupling} shows numerical results for the 4-loop calculation. At larger momenta the smallness of the effective coupling permits the use of perturbation theory, which has been incredibly successful in describing hard scattering processes at high energies [REF]. Conversely, as the low-momenta infrared regime is approached, perturbative methods break down and one must employ other techniques such as lattice gauge theory [REF]. One can make this quantitative by defining 
+\begin{equation}
+\label{eq:|ambdaQCD}
+\Lambda_{QCD}^2=\frac{\mu^2}{e^{1/\brac{\beta_0\alpha_s\brac{\mu^2}}}},
+\end{equation}
+such that Eq.~\ref{eq:gQCD_oneloop} becomes
+\begin{equation}
+\label{eq:gQCD_oneloop_new}
+\alpha_S\brac{Q^2}=\frac{1}{\beta_0\log\frac{Q^2}{\Lambda_{QCD}^2}}.
+\end{equation}
+In doing so, a dimensionful parameter \(\Lambda_{QCD}\) is introduced such that \(\alpha_S\brac{Q^2}\to\infty\) as \(Q^2\to\Lambda_{QCD}^2\). Thus \(\Lambda_{QCD}\) is an estimate for the momentum scale where non-perturbative dynamics become important. Recent results give \(\Lambda_{QCD}\sim 200\mathrm{MeV}\) [REF:2009ave]. It should be stressed here that this picture is purely perturbative -- one should take this calculation to give a clear sign that non-perturbative methods are required, and not a proof that the coupling actually becomes infinite at this scale.
+
+Finally, we note that in analogy to quantum electrodynamics, one can interpret the running coupling physically in terms of vacuum polarisation and (anti-)screening [REF]. The screening of a test charge will be a central concept throughout the rest of this thesis and will be introduced properly in Section.~\ref{sec:med_pot}.
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=0.9\textwidth]{RunningCoupling}
+	\includegraphics[width=\textwidth]{QCDRunningCoupling}
 	\caption{Running coupling.}\label{fig:RunningCoupling}
 \end{figure}
+\subsection{Confinement}
+Perhaps the most fascinating, and notoriously impenetrable, aspect of QCD is \emph{confinement}. Formally, this is the statement that all observable states of finite energy are colour singlets -- colourless bound state hadrons. This manifests itself experimentally through the fact that asymptotically free (coloured) quarks and gluons have never been observed. It should be immediately emphasised that confinement is not simply the running coupling extrapolated into the low-energy hadronic regime. The so-called ``infrared slavery" outlined in the previous section, where interactions grow increasingly strong, is alone not sufficient to explain and describe confinement [REF:greensite]. The phenomenon in much more intricate, and inherently non-perturbative. Indeed one of the well-known Millennium problems [REF] is to rigorously prove confinement for (purely gluonic) Yang-Mills theory.
+
+One of the most discussed and easily-visualised aspects of confinement is its manifestation in the quark-antiquark potential. In particular, in Euclidean field theory (see e.g. [REF:Rothe]), the propagation of a quark-antiquark system in the infinite mass limit is described by an object \(W\brac{R,T}\) known as the Wilson loop with spatial extent \(R\) and temporal extent \(T\). At large times the expectation value of the Wilson loop asymptotes as
+\begin{equation}
+\label{eq:WilsonLoopExp}
+\lim_{T\to\infty}\Braket{W\brac{R,T}}\sim\mathrm{exp}\brac{-V\brac{R}T}
+\end{equation}
+where \(V\brac{R}\) is the static potential acting between a heavy quark \(q\) and antiquark \(\bar{q}\). In the strong coupling regime one can demonstrate analytically that this potential grows linearly at large distances. This behaviour is also found for finite quark mass using modern techniques with an improved definition of the static potential extracted from lattice calculations [REF 1410:2546, 1108:1579, 1111:1710]. Why the linearly rising potential is confining can be understood qualitatively by considering so-called chromoelectric (colour) flux tubes shown in Fig.~\ref{fig:FluxTube}.
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{FluxTube}
+\caption{QCD Flux Tube}\label{fig:FluxTube}
+\end{figure} 
+In contrast to the more familiar dipole field lines of QED, the QCD field lines do not spread in space but instead remain concentrated within a narrow region due to the self interactions of the gluons. In this way the energy density within tube remains constant and so the total energy stored in the system increases linearly with the separation. If one imagines pulling the quark and antiquark apart, the interaction between them becomes stronger in a similar way to what happens with a spring. To increase the separation to infinity would require an infinite and thus unphysical amount of energy, so the linearly rising potential is considered confining. This explanation is intuitive but ultimately incomplete. The concept of a static potential is quantum mechanical and inherently non-relativistic. In reality, the potential is observed to flatten when it reaches a threshold value such that it becomes energetically favourable for the \(q\bar{q}\) bound state to dissolve into two heavy-light meson states. This phenomenon is known as \emph{string-breaking}, and will be discussed in more detail in Sec.~\ref{sec:quark_vac}.
 \section{Quarkonium in vacuum}
-\label{sec:quark_vav}
+\label{sec:quark_vac}
 \onehalfspacing
 \chapter{The in-medium potential}
 \label{sec:med_pot}
