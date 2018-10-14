@@ -12,12 +12,12 @@ set border linewidth 1.5
 #set style line 3 linecolor rgb '#984ea3' linetype 1 linewidth 3 
 #set style line 4 linecolor rgb '#984ea3' linetype 0 linewidth 3 
 
-set xlabel '\(\sqrt{s_{NN}}\;\left[\mathrm{GeV}\right]\)' fontsize 20
-set ylabel 'Relative production \(\psi(2S)/J/\psi\)' fontsize 20
+set xlabel '\(\sqrt{s_{NN}}\;\left[\mathrm{GeV}\right]\)'
+set ylabel 'Relative production \(\;\psi(2S)/J/\psi\)'
 
 set label 'Pb-Pb' at graph 0.1, graph 0.5
 
-set key at graph 0.7, graph 0.45
+set key at graph 0.9, graph 0.35
 
 set xrange [10:12000]
 set yrange [0.:0.05]
