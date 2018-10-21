@@ -11,7 +11,7 @@ set bmargin 5
 set border linewidth 1.5
 
 set xlabel '\(T\;\left[\mathrm{GeV}\right]\)' offset 0,-1
-set ylabel 'Mass\(\;\left[\mathrm{GeV}\right]\)' offset -2,0
+set ylabel 'M\(\;\left[\mathrm{GeV}\right]\)' offset -2,0
 
 set xrange [0.15:0.3]
 
