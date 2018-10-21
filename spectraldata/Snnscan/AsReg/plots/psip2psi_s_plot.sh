@@ -18,7 +18,7 @@ set ylabel 'Relative production \(\;\psi(2S)/J/\psi\)'
 set label 'Pb-Pb' at graph 0.1, graph 0.1
 set label 'p-p' at graph 0.13, graph 0.6
 
-set key at graph 0.9, graph 0.35
+set key at graph 0.9, graph 0.3
 
 set xrange [10:12000]
 
