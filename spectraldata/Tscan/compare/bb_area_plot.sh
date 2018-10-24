@@ -2,7 +2,7 @@
 
 gnuplot << EOF
 
-set terminal cairolatex standalone size 7,5 font ',14'
+set terminal cairolatex standalone size 15,10 font ',14'
 set output "bb_area.tex"
 
 set lmargin 12
