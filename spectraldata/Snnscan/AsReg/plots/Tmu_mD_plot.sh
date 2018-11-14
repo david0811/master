@@ -2,19 +2,19 @@
 
 gnuplot << EOF
 
-set terminal epslatex size 7,5 standalone color colortext 10 font ',14'
+set terminal epslatex size 8,6 standalone color colortext 10 font ',20'
 set output "Tmu_mD_plot.tex"
 
 set border linewidth 1.5
 # Set first two line styles to blue (#0060ad) and red (#dd181f)
-set style line 1 linecolor rgb '#e41a1c' linetype 1 linewidth 4
-set style line 2 linecolor rgb '#377eb8' linetype 1 linewidth 4 
-set style line 3 linecolor rgb '#4daf4a' linetype 1 linewidth 4 
+set style line 1 linecolor rgb '#e41a1c' linetype 1 linewidth 6
+set style line 2 linecolor rgb '#377eb8' linetype 1 linewidth 6 
+set style line 3 linecolor rgb '#4daf4a' linetype 1 linewidth 6 
 
 set xlabel '\(\sqrt{s_{NN}}\;\left[\mathrm{GeV}\right]\)'
 set ylabel '\(\left[\mathrm{GeV}\right]\)'
 
-set key at graph 0.8, graph 0.95
+set key at graph 0.9, graph 0.4
 
 set xrange [2:12000]
 set yrange [-.01:0.3]

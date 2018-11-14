@@ -2,7 +2,7 @@
 
 gnuplot << EOF
 
-set terminal cairolatex standalone size 7,5 font ',14'
+set terminal cairolatex standalone size 7,5 font ',20'
 set output "cc_width.tex"
 
 set lmargin 12
@@ -15,7 +15,7 @@ set ylabel '\(\Gamma\;\left[\mathrm{GeV}\right]\)' offset -2,0
 
 set xrange [0.15:0.3]
 
-set key at graph 0.7, graph 0.9     
+set key at graph 0.9, graph 0.9     
 set key spacing 2.5
 
 set style fill transparent solid 0.5 noborder
