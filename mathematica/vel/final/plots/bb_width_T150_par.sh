@@ -16,7 +16,7 @@ set key spacing 2
 #set style line 4 linecolor rgb '#984ea3' linetype 0 linewidth 3 
 
 set xlabel '\(v_{\parallel}\)' 
-set ylabel '\(M\;\left[\mathrm{GeV}\right]\)'
+set ylabel '\(\Gamma\;\left[\mathrm{GeV}\right]\)'
 
 set key at graph 0.9, graph 0.3
 
