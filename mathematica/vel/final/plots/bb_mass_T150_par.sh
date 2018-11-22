@@ -15,9 +15,11 @@ set border linewidth 1.5
 set xlabel '\(v_{\parallel}\)' 
 set ylabel '\(M\;\left[\mathrm{GeV}\right]\)'
 
+set key spacing 1.2
 
+set key at graph 0.9, graph 0.4
 
-set key at graph 0.9, graph 0.3
+set ylabel offset 1,0
 
 set style fill transparent solid 0.5 noborder
 

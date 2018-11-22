@@ -7,15 +7,12 @@ set output "cc_mass_T150_par.tex"
 
 set border linewidth 1.5
 
-#set style line 1 linecolor rgb '#4daf4a' linetype 1 linewidth 3
-#set style line 2 linecolor rgb '#4daf4a' linetype 0 linewidth 3
-#set style line 3 linecolor rgb '#984ea3' linetype 1 linewidth 3 
-#set style line 4 linecolor rgb '#984ea3' linetype 0 linewidth 3 
-
 set xlabel '\(v_{\parallel}\)' 
 set ylabel '\(M\;\left[\mathrm{GeV}\right]\)'
 
-set key at graph 0.9, graph 0.3
+set key at graph 0.9, graph 0.4
+
+set key spacing 1.5
 
 set style fill transparent solid 0.5 noborder
 

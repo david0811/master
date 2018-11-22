@@ -12,8 +12,10 @@ set border linewidth 1.5
 #set style line 3 linecolor rgb '#984ea3' linetype 1 linewidth 3 
 #set style line 4 linecolor rgb '#984ea3' linetype 0 linewidth 3 
 
-set xlabel '\(v_{\parallel}\)' 
+set xlabel '\(v_{\perp}\)' 
 set ylabel '\(M\;\left[\mathrm{GeV}\right]\)'
+
+set yrange [9.2:10]
 
 set key spacing 1.5
 set key at graph 0.9, graph 0.6

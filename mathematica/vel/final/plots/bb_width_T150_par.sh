@@ -8,8 +8,6 @@ set output "bb_width_T150_par.tex"
 set lmargin 12
 set bmargin 5
 
-set key spacing 2
-
 #set style line 1 linecolor rgb '#4daf4a' linetype 1 linewidth 3
 #set style line 2 linecolor rgb '#4daf4a' linetype 0 linewidth 3
 #set style line 3 linecolor rgb '#984ea3' linetype 1 linewidth 3 
@@ -18,7 +16,12 @@ set key spacing 2
 set xlabel '\(v_{\parallel}\)' 
 set ylabel '\(\Gamma\;\left[\mathrm{GeV}\right]\)'
 
-set key at graph 0.9, graph 0.3
+set ylabel offset -3,0
+set xlabel offset 0,-1
+
+set key horizontal
+
+set key at graph 0.5, graph 0.95
 
 set style fill transparent solid 0.5 noborder
 

@@ -7,12 +7,7 @@ set output "bb_width_T250_perp.tex"
 
 set border linewidth 1.5
 
-#set style line 1 linecolor rgb '#4daf4a' linetype 1 linewidth 3
-#set style line 2 linecolor rgb '#4daf4a' linetype 0 linewidth 3
-#set style line 3 linecolor rgb '#984ea3' linetype 1 linewidth 3 
-#set style line 4 linecolor rgb '#984ea3' linetype 0 linewidth 3 
-
-set xlabel '\(v_{\parallel}\)' 
+set xlabel '\(v_{\perp}\)' 
 set ylabel '\(\Gamma\;\left[\mathrm{GeV}\right]\)'
 
 set key spacing 1.5
