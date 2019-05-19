@@ -28,7 +28,7 @@ set arrow from graph 0,1 to graph 0,1.05 filled
 
 set key at graph 0.9, graph 0.65
 
-set xrange [0:1]
+set xrange [0:1.2]
 set xtics 0.2
 set yrange [-.01:0.6]
 set ytics 0.2

@@ -30,8 +30,8 @@ set key at graph 0.57, graph 0.9
 set key spacing 1.5
 set key samplen 2
 
-set xrange [0:2]
-set xtics 0.5
+set xrange [0:1.2]
+set xtics 0.2
 set yrange [-.01:0.6]
 set ytics 0.2
 

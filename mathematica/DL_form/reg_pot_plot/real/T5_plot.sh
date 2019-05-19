@@ -33,8 +33,8 @@ set key samplen 2
 
 set xrange [0:1]
 set xtics 0.2
-set yrange [-1.5:0.5]
-set ytics 0.5
+set yrange [-2:0.5]
+set ytics 1
 
 #set label '(a)' at graph 1.05,0.9
 

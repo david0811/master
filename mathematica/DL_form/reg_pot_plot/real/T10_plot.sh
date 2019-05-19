@@ -31,7 +31,7 @@ set key at graph 0.9, graph 0.65
 
 set xrange [0:1]
 set xtics 0.2
-set yrange [-2.5:0.5]
+set yrange [-2:0.5]
 set ytics 1
 
 

@@ -27,14 +27,14 @@ set arrow from graph 0,1 to graph 0,1.05 filled
 
 #set title '\(T=1~\mathrm{GeV}\)'
 
-set key at graph 0.95, graph 1.05
+set key at graph 0.95, graph 0.4
 set key samplen 2
 set key spacing 1.1
 
-set xrange [0:3]
-set xtics 1
-set yrange [-1:1]
-set ytics 0.5
+set xrange [0:1]
+set xtics 0.2
+set yrange [-2:0.5]
+set ytics 1
 
 #set label '(a)' at graph 1.05,0.9
 
