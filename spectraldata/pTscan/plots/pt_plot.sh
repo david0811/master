@@ -2,7 +2,7 @@
 
 gnuplot << EOF
 
-set terminal epslatex size 7,5 standalone color colortext 10 font ',14'
+set terminal epslatex size 7,5 standalone color colortext 10 font ',20'
 set output "pT_ratio.tex"
 
 set border linewidth 5
